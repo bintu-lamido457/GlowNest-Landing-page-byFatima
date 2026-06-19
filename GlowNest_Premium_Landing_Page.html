@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GlowNest Naturals - Glow Recovery Collection</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;line-height:1.6;color:#333}
+.topbar{background:#111;color:#fff;text-align:center;padding:12px}
+.hero{padding:80px 20px;text-align:center;background:#f8f2ea}
+.container{max-width:1100px;margin:auto;padding:20px}
+.btn{background:#c58a4a;color:#fff;padding:14px 24px;text-decoration:none;border-radius:6px;font-weight:bold}
+.section{padding:60px 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{border:1px solid #eee;padding:20px;border-radius:10px}
+.price{font-size:48px;font-weight:bold;color:#c58a4a}
+.faq-item{border-bottom:1px solid #ddd}
+.faq-q{cursor:pointer;padding:15px;font-weight:bold}
+.faq-a{display:none;padding:0 15px 15px}
+.testimonial{display:none;text-align:center;padding:20px;background:#fafafa;border-radius:10px}
+.testimonial.active{display:block}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#111;padding:12px;text-align:center;z-index:999}
+.sticky a{color:#fff;text-decoration:none;font-weight:bold}
+.countdown{font-size:28px;font-weight:bold;margin:20px 0}
+footer{background:#111;color:#fff;text-align:center;padding:30px}
+</style>
+</head>
+<body>
+
+<div class="topbar">GLOWNEST NATURALS • HANDCRAFTED IN LAGOS • CREATED FOR MELANIN-RICH SKIN</div>
+
+<section class="hero">
+<h1>Stop Fighting Your Skin. Start Helping It Recover.</h1>
+<p>Designed for women tired of breakouts, irritation, uneven tone and endless product hopping.</p>
+<div class="countdown" id="timer"></div>
+<a class="btn" href="#buy">Get The Collection</a>
+</section>
+
+<section class="section container">
+<h2>Why Most Routines Fail</h2>
+<div class="cards">
+<div class="card">Focus only on dark spots.</div>
+<div class="card">Depend on harsh ingredients.</div>
+<div class="card">Encourage product hopping.</div>
+<div class="card">Ignore skin recovery.</div>
+</div>
+</section>
+
+<section class="section container">
+<h2>The Glow Recovery Method™</h2>
+<div class="cards">
+<div class="card"><h3>1. Cleanse</h3><p>Turmeric Glow Bar</p></div>
+<div class="card"><h3>2. Refresh</h3><p>African Black Soap Scrub</p></div>
+<div class="card"><h3>3. Nourish</h3><p>Glow Recovery Oil</p></div>
+<div class="card"><h3>4. Protect</h3><p>Whipped Shea Repair Butter</p></div>
+</div>
+</section>
+
+<section class="section container">
+<h2>Testimonials</h2>
+<div class="testimonial active">“My skin feels calmer and more balanced.” — Ada</div>
+<div class="testimonial">“I finally stuck to a routine and saw progress.” — Chioma</div>
+<div class="testimonial">“Softer skin and fewer irritation issues.” — Esther</div>
+</section>
+
+<section class="section container" id="buy">
+<h2>Glow Recovery Collection</h2>
+<p>Total Value: <s>$74</s></p>
+<div class="price">$58</div>
+<p>Or ₦38,000</p>
+<a class="btn" href="#">Buy Now</a>
+</section>
+
+<section class="section container">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-q">Is this a bleaching product?</div>
+<div class="faq-a">No. It is designed to support healthier-looking skin without bleaching agents.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Is it suitable for sensitive skin?</div>
+<div class="faq-a">It is formulated for gentle daily support.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">How long before I notice changes?</div>
+<div class="faq-a">Results vary, but consistency is important.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Do you ship internationally?</div>
+<div class="faq-a">Yes, international shipping is available.</div>
+</div>
+</section>
+
+<footer>
+© 2026 GlowNest Naturals. Results vary by individual.
+</footer>
+
+<div class="sticky">
+<a href="#buy">✨ START YOUR GLOW JOURNEY TODAY</a>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+  const a=q.nextElementSibling;
+  a.style.display=a.style.display==='block'?'none':'block';
+ });
+});
+
+let idx=0;
+const testimonials=document.querySelectorAll('.testimonial');
+setInterval(()=>{
+ testimonials[idx].classList.remove('active');
+ idx=(idx+1)%testimonials.length;
+ testimonials[idx].classList.add('active');
+},3000);
+
+const end=new Date();
+end.setDate(end.getDate()+7);
+function updateTimer(){
+ const now=new Date();
+ const diff=end-now;
+ if(diff<=0){document.getElementById('timer').innerText='Offer Ended';return;}
+ const d=Math.floor(diff/86400000);
+ const h=Math.floor(diff%86400000/3600000);
+ const m=Math.floor(diff%3600000/60000);
+ const s=Math.floor(diff%60000/1000);
+ document.getElementById('timer').innerText=`Offer Ends In: ${d}d ${h}h ${m}m ${s}s`;
+}
+setInterval(updateTimer,1000);
+updateTimer();
+</script>
+
+</body>
+</html>
